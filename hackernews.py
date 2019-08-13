@@ -7,22 +7,26 @@ class HackerNews:
     def __init__(self):
         pass
 
+    def sendReq(self, url):
+        return requests.get(url).json()
+    
     def item(self, id):
-        itemRequest = requests.get(self.hn_base_url + '/item/' + str(id) + self.response_format)
-        return itemRequest.json()
+        item = self.sendReq(self.hn_base_url + '/item/' + str(id) + self.response_format)
+        return item
 
-    def topstories(self, max):
-        topStoriesRequest = requests.get(self.hn_base_url + '/topstories' + self.response_format)
-        topStoriesIdsList = topStoriesRequest.json()
-        # use the ids to get the items
-        idListLength = len(topStoriesIdsList)
+    def stories(self, fetchMax, type):
+        if type == 'topstories':
+            idList = self.sendReq(self.hn_base_url + '/topstories' + self.response_format)
+        elif type == 'newstories':
+            idList = self.sendReq(self.hn_base_url + '/newstories' + self.response_format)
+        elif type == 'beststories':
+            idList = self.sendReq(self.hn_base_url + '/beststories' + self.response_format)
+        idListLength = len(idList)
         storyList = []
-        if max < idListLength:
-            for i in range(max):
-                id = topStoriesIdsList[i]
+        if fetchMax < idListLength:
+            for i in range(fetchMax):
+                id = idList[i]
                 if id is not None:
                     story = self.item(id)
                     storyList.append(story)
         return storyList
-
-        
