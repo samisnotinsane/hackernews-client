@@ -32,3 +32,6 @@ score | The story's score, or the votes for a pollopt.
 title | The title of the story, poll or job.
 parts | A list of related pollopts, in display order.
 descendants | In the case of stories or polls, the total comment count.
+
+## Screenshot
+![Hacker News Client](/screenshots/hackernews-client-screenshot.png?raw=true "Bash shell running example.py script")
