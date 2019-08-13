@@ -7,15 +7,21 @@ def main():
     
     print('------------------ BEST STORIES ------------------')
     storyList = hn.stories(fetchMax=1, type='beststories')
-    print(prettify(storyList[0]))
+    bestStoryJsonDict = storyList[0]
+    print(bestStoryJsonDict['title'] + ' | score: ' + str(bestStoryJsonDict['score']))
+    print(bestStoryJsonDict['url'])
 
     print('------------------ TOP STORIES ------------------')
     storyList = hn.stories(fetchMax=1, type='topstories')
-    print(prettify(storyList[0]))
+    topStoryJsonDict = storyList[0]
+    print(topStoryJsonDict['title'] + ' | score: ' + str(topStoryJsonDict['score']))
+    print(topStoryJsonDict['url'])
 
     print('------------------ NEW STORIES ------------------')
     storyList = hn.stories(fetchMax=1, type='newstories')
-    print(prettify(storyList[0]))
+    newStoryJsonDict = storyList[0]
+    print(newStoryJsonDict['title'] + ' | score: ' + str(newStoryJsonDict['score']))
+    print(newStoryJsonDict['url'])
 
 def prettify(jsonPayload):
     return json.dumps(jsonPayload, indent=4)
