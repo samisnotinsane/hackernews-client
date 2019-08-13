@@ -1,5 +1,4 @@
 from hackernews import HackerNews
-import json
 
 def main():
     hn = HackerNews()
@@ -11,7 +10,7 @@ def main():
         bestStoryJsonDict = storyList[i]
         print(str(i+1) + '. ' + bestStoryJsonDict['title'] + ' | score: ' + str(bestStoryJsonDict['score']))
         if 'url' in bestStoryJsonDict:
-            print('->' + bestStoryJsonDict['url'])
+            print('-> ' + bestStoryJsonDict['url'])
         print('\n')
 
     print('------------------ TOP STORIES ------------------\n')
@@ -32,10 +31,6 @@ def main():
             if 'url' in newStoryJsonDict:
                 print('-> ' + newStoryJsonDict['url'])
             print('\n')
-    
-
-def prettify(jsonPayload):
-    return json.dumps(jsonPayload, indent=4)
 
 if __name__ == "__main__":
     main()
