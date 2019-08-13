@@ -2,7 +2,7 @@
 A simple Python wrapper for Hacker News web API.
 
 ## Usage
-Initialise the wrapper by instantiating `hn = HackerNews()`. An example of how to use this client can be seen in `main.py`.
+Initialise the wrapper by instantiating `hn = HackerNews()`. An example of how to use this client can be seen in `examples.py`.
 
 The class supports the following methods:
 
