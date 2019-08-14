@@ -1,7 +1,7 @@
-from hackernews import HackerNews
+from hacker_news import hackernews
 
 def main():
-    hn = HackerNews()
+    hn = hackernews.HackerNews()
     print('hackernews-client v0.1\n\n')
     
     print('------------------ BEST STORIES ------------------\n')

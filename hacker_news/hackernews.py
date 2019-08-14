@@ -1,6 +1,6 @@
 import requests
 
-class HackerNews(object):
+class HackerNewsClient(object):
     hn_base_url = 'https://hacker-news.firebaseio.com/v0'
     response_format = '.json'
     
