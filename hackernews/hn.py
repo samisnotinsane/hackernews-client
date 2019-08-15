@@ -1,6 +1,6 @@
 import requests
 
-class HackerNewsClient(object):
+class NewsClient(object):
     hn_base_url = 'https://hacker-news.firebaseio.com/v0'
     response_format = '.json'
     
@@ -30,3 +30,8 @@ class HackerNewsClient(object):
                     story = self.item(id)
                     storyList.append(story)
         return storyList
+
+
+class Item(object):
+    def __init__(self):
+        pass

@@ -1,7 +1,17 @@
 # hackernews-client
-A simple Python wrapper for Hacker News web API.
+
+Use this wrapper library to download Hacker News headlines into your Python program. 
+
+### Prerequisites
+
+requests library is used to wrap around Hacker News' Web API. Therefore you will need this as a dependency.
+
+```
+pip install requests
+```
 
 ## Usage
+
 Initialise the wrapper by instantiating `hn = HackerNews()`. An example of how to use this client can be seen in `examples.py`.
 
 The class supports the following methods:
@@ -33,5 +43,23 @@ title | The title of the story, poll or job.
 parts | A list of related pollopts, in display order.
 descendants | In the case of stories or polls, the total comment count.
 
+## Running the tests
+
+Unit tests can be run with the following command
+
+```
+python -m unittest -v
+```
+
 ## Screenshot
+
 ![Hacker News Client](/screenshots/hackernews-client-screenshot.png?raw=true "Bash shell running example.py script")
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Author of [haxor](https://github.com/avinassh/haxor) for inspiring me to make my first Python library
+* Author of [python-packaging](http://veekaybee.github.io/2017/09/26/python-packaging/) tutorial who helped me get my head around nighmarish Python import system

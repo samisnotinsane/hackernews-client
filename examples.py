@@ -1,11 +1,11 @@
-from hacker_news import hackernews
+from hackernews import hn
 
 def main():
-    hn = hackernews.HackerNews()
     print('hackernews-client v0.1\n\n')
-    
+    news_client = hn.NewsClient()
+
     print('------------------ BEST STORIES ------------------\n')
-    storyList = hn.stories(fetchMax=1, type='beststories')
+    storyList = news_client.stories(fetchMax=1, type='beststories')
     for i in range(len(storyList)):
         bestStoryJsonDict = storyList[i]
         print(str(i+1) + '. ' + bestStoryJsonDict['title'] + ' | score: ' + str(bestStoryJsonDict['score']))
@@ -14,7 +14,7 @@ def main():
         print('\n')
 
     print('------------------ TOP STORIES ------------------\n')
-    storyList = hn.stories(fetchMax=5, type='topstories')
+    storyList = news_client.stories(fetchMax=5, type='topstories')
     for i in range(len(storyList)):
         topStoryJsonDict = storyList[i]
         print(str(i+1) + '. ' + topStoryJsonDict['title'] + ' | score: ' + str(topStoryJsonDict['score']))
@@ -23,7 +23,7 @@ def main():
         print('\n')
 
     print('------------------ NEW STORIES ------------------\n')
-    storyList = hn.stories(fetchMax=3, type='newstories')
+    storyList = news_client.stories(fetchMax=3, type='newstories')
     if storyList:
         for i in range(len(storyList)):
             newStoryJsonDict = storyList[i]
