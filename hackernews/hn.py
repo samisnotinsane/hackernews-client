@@ -38,6 +38,12 @@ class NewsClient(object):
         endpoint_url = '/user'
         response = self.sendRequest(self.base_url + endpoint_url + '/' + id + self.response_format)
         return User(response)
+
+    def get_max_item_id(self):
+        endpoint_url = '/maxitem'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response
+
     
     def item(self, id):
         item = self.sendRequest(self.base_url + '/item/' + str(id) + self.response_format)

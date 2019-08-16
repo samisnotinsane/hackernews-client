@@ -70,6 +70,10 @@ class TestTopStories(unittest.TestCase):
         # self.assertEqual(user.karma, ...)
         # self.assertEqual(set(user.submitted), set([8265435, 8168423, 8090946, ... ]))
 
+    def test_get_max_item_id(self):
+        id = self.client.get_max_item_id()
+        self.assertIsNotNone(id)
+
     def tearDown(self):
         pass
 
