@@ -6,6 +6,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
 
 from hackernews.hn import NewsClient
 from hackernews.hn import Item
+from hackernews.hn import User
 
 class TestTopStories(unittest.TestCase):
     
@@ -19,7 +20,7 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(item.id, 8863)
         self.assertEqual(item.descendants, 71)
         self.assertSetEqual(set(item.kids), set([8952, 9224, 8917, 8884, 8887, 8943, 8869, 8958, 9005, 9671, 8940, 9067, 8908, 9055, 8865, 8881, 8872, 8873, 8955, 10403, 8903, 8928, 9125, 8998, 8901, 8902, 8907, 8894, 8878, 8870, 8980, 8934, 8876]))
-        # self.assertEqual(item.score, 111) # not making assertions as this changes over time
+        # self.assertEqual(item.score, ...) # not making assertions as this changes over time
         self.assertEqual(item.time, 1175714200)
         self.assertEqual(item.title, 'My YC app: Dropbox - Throw away your USB drive')
         self.assertEqual(item.type, 'story')
@@ -57,6 +58,17 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(item.title, "Justin.tv is looking for a Lead Flash Engineer!")
         self.assertEqual(item.type, 'job')
         self.assertFalse(item.url)
+
+    def test_get_user_by_id(self):
+        user = self.client.get_user_by_id('jl')
+        self.assertIsInstance(user, User)
+        self.assertEqual(user.about, 'This is a test')
+        self.assertEqual(user.created, 1173923446)
+        self.assertEqual(user.delay, None)
+        self.assertEqual(user.id, 'jl')
+        self.assertEqual(user.karma, 2937)
+        # not making assertions about below as this changes over time
+        # self.assertEqual(set(user.submitted), set([8265435, 8168423, 8090946, ... ]))
 
     def tearDown(self):
         pass
