@@ -74,6 +74,18 @@ class TestTopStories(unittest.TestCase):
         id = self.client.get_max_item_id()
         self.assertIsNotNone(id)
 
+    def test_get_top_story_ids(self):
+        top_story_ids = self.client.get_top_story_ids(limit=10)
+        self.assertEqual(len(top_story_ids), 10)
+
+    def test_get_new_story_ids(self):
+        new_story_ids = self.client.get_new_story_ids(limit=10)
+        self.assertEqual(len(new_story_ids), 10)
+    
+    def test_get_best_story_ids(self):
+        best_story_ids = self.client.get_best_story_ids(limit=10)
+        self.assertEqual(len(best_story_ids), 10)
+
     def tearDown(self):
         pass
 
