@@ -12,7 +12,7 @@ class TestTopStories(unittest.TestCase):
     def setUp(self):
         self.client = NewsClient()
 
-    def test_get_item_by_id(self):
+    def test_get_story_item_by_id(self):
         item = self.client.get_item_by_id(8863)
         self.assertIsInstance(item, Item)
         self.assertEqual(item.by, 'dhouston')
@@ -25,6 +25,15 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(item.type, 'story')
         self.assertEqual(item.url, 'http://www.getdropbox.com/u/2/screencast.html')
 
+    def test_get_comment_item_by_id(self):
+        item = self.client.get_item_by_id(2921983)
+        self.assertIsInstance(item, Item)
+        self.assertEqual(item.by, 'norvig')
+        self.assertEqual(set(item.kids), set([2922097, 2922429, 2924562, 2922709, 2922573, 2922140, 2922141]))
+        self.assertEqual(item.parent, 2921506)
+        self.assertEqual(item.text, "Aw shucks, guys ... you make me blush with your compliments.<p>Tell you what, Ill make a deal: I'll keep writing if you keep reading. K?")
+        self.assertEqual(item.time, 1314211127)
+        self.assertEqual(item.type, 'comment')
 
     # def test_top_stories(self):
     #     top_stories = self.client.stories(fetchMax=5, type='topstories')
