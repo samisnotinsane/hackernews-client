@@ -1,6 +1,8 @@
 # hackernews-client
 
 [![CircleCI](https://circleci.com/gh/samisnotinsane/hackernews-client/tree/master.svg?style=svg)](https://circleci.com/gh/samisnotinsane/hackernews-client/tree/master)
+[![codebeat badge](https://codebeat.co/badges/651aecbd-aba5-4631-9246-fce7bca9a382)](https://codebeat.co/projects/github-com-samisnotinsane-hackernews-client-master)
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://opensource.org/licenses/mit-license.php)
 
 Use this wrapper library to download Hacker News headlines into your Python program. 
 
