@@ -62,6 +62,21 @@ class NewsClient(object):
         endpoint_url = '/beststories'
         response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
         return response[:limit]
+
+    def get_ask_story_ids(self, limit=200):
+        endpoint_url = '/askstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_show_story_ids(self, limit=200):
+        endpoint_url = '/showstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_job_story_ids(self, limit=200):
+        endpoint_url = '/jobstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
     
     def item(self, id):
         item = self.sendRequest(self.base_url + '/item/' + str(id) + self.response_format)
