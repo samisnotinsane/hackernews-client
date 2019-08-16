@@ -1,7 +1,11 @@
 import unittest
+import sys
+import os
 
-from hackernews import NewsClient
-from hackernews import Item
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/..")
+
+from hackernews.hn import NewsClient
+from hackernews.hn import Item
 
 class TestTopStories(unittest.TestCase):
     
