@@ -12,7 +12,6 @@ class NewsClient(object):
     def sendRequest(self, url):
         return requests.get(url).json()
 
-
     def get_item_by_id(self, id):
         """
         Fetches the data from url: https://hacker-news.firebaseio.com/v0/item/<item_id>.json
@@ -38,6 +37,46 @@ class NewsClient(object):
         endpoint_url = '/user'
         response = self.sendRequest(self.base_url + endpoint_url + '/' + id + self.response_format)
         return User(response)
+
+    def get_max_item_id(self):
+        """
+        Fetches the current largest item id from the url: https://hacker-news.firebaseio.com/v0/maxitem.json
+        Returns:
+            `int` of the largest item id
+        """
+        endpoint_url = '/maxitem'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response
+
+    def get_top_story_ids(self, limit=500):
+        endpoint_url = '/topstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_new_story_ids(self, limit=500):
+        endpoint_url = '/newstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_best_story_ids(self, limit=500):
+        endpoint_url = '/beststories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_ask_story_ids(self, limit=200):
+        endpoint_url = '/askstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_show_story_ids(self, limit=200):
+        endpoint_url = '/showstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
+
+    def get_job_story_ids(self, limit=200):
+        endpoint_url = '/jobstories'
+        response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
+        return response[:limit]
     
     def item(self, id):
         item = self.sendRequest(self.base_url + '/item/' + str(id) + self.response_format)

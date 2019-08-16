@@ -70,6 +70,34 @@ class TestTopStories(unittest.TestCase):
         # self.assertEqual(user.karma, ...)
         # self.assertEqual(set(user.submitted), set([8265435, 8168423, 8090946, ... ]))
 
+    def test_get_max_item_id(self):
+        id = self.client.get_max_item_id()
+        self.assertIsNotNone(id)
+
+    def test_get_top_story_ids(self):
+        top_story_ids = self.client.get_top_story_ids(limit=10)
+        self.assertEqual(len(top_story_ids), 10)
+
+    def test_get_new_story_ids(self):
+        new_story_ids = self.client.get_new_story_ids(limit=10)
+        self.assertEqual(len(new_story_ids), 10)
+    
+    def test_get_best_story_ids(self):
+        best_story_ids = self.client.get_best_story_ids(limit=10)
+        self.assertEqual(len(best_story_ids), 10)
+
+    def test_get_ask_story_ids(self):
+        ask_story_ids = self.client.get_ask_story_ids(limit=10)
+        self.assertEqual(len(ask_story_ids), 10)
+
+    def test_get_show_story_ids(self):
+        show_story_ids = self.client.get_show_story_ids(limit=10)
+        self.assertEqual(len(show_story_ids), 10)
+
+    def test_get_job_story_ids(self):
+        job_story_ids = self.client.get_job_story_ids(limit=10)
+        self.assertEqual(len(job_story_ids), 10)
+
     def tearDown(self):
         pass
 
