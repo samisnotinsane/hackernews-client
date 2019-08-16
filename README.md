@@ -1,5 +1,7 @@
 # hackernews-client
 
+[![CircleCI](https://circleci.com/gh/samisnotinsane/hackernews-client/tree/master.svg?style=svg)](https://circleci.com/gh/samisnotinsane/hackernews-client/tree/master)
+
 Use this wrapper library to download Hacker News headlines into your Python program. 
 
 ### Prerequisites
