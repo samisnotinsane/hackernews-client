@@ -35,6 +35,19 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(item.time, 1314211127)
         self.assertEqual(item.type, 'comment')
 
+    def test_get_ask_item_by_id(self):
+        item = self.client.get_item_by_id(121003)
+        self.assertIsInstance(item, Item)
+        self.assertEqual(item.by, 'tel')
+        self.assertEqual(item.descendants, 16)
+        self.assertEqual(item.id, 121003)
+        self.assertEqual(set(item.kids), set([121016, 121109, 121168]))
+        self.assertEqual(item.text, "<i>or</i> HN: the Next Iteration<p>I get the impression that with Arc being released a lot of people who never had time for HN before are suddenly dropping in more often. (PG: what are the numbers on this? I'm envisioning a spike.)<p>Not to say that isn't great, but I'm wary of Diggification. Between links comparing programming to sex and a flurry of gratuitous, ostentatious  adjectives in the headlines it's a bit concerning.<p>80% of the stuff that makes the front page is still pretty awesome, but what's in place to keep the signal/noise ratio high? Does the HN model still work as the community scales? What's in store for (++ HN)?")
+        self.assertEqual(item.time, 1203647620)
+        self.assertEqual(item.title, 'Ask HN: The Arc Effect')
+        self.assertEqual(item.type, 'story')
+        self.assertFalse(item.url)
+
     # def test_top_stories(self):
     #     top_stories = self.client.stories(fetchMax=5, type='topstories')
     #     self.assertIsInstance(top_stories, list)
