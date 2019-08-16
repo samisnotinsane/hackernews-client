@@ -66,8 +66,8 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(user.created, 1173923446)
         self.assertEqual(user.delay, None)
         self.assertEqual(user.id, 'jl')
-        self.assertEqual(user.karma, 2937)
         # not making assertions about below as this changes over time
+        # self.assertEqual(user.karma, ...)
         # self.assertEqual(set(user.submitted), set([8265435, 8168423, 8090946, ... ]))
 
     def tearDown(self):
