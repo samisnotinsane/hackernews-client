@@ -98,6 +98,11 @@ class TestTopStories(unittest.TestCase):
         job_story_ids = self.client.get_job_story_ids(limit=10)
         self.assertEqual(len(job_story_ids), 10)
 
+    def test_get_new_story(self):
+        new_story_items = self.client.get_new_story(fetchMax=10)
+        self.assertEqual(len(new_story_items), 10)
+        self.assertIsNotNone(new_story_items[0])
+
     def tearDown(self):
         pass
 
