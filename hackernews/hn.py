@@ -78,6 +78,13 @@ class NewsClient(object):
         response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
         return response[:limit]
     
+    def get_best_story(self, fetchMax=500):
+        best_story_ids = self.get_best_story_ids(limit=fetchMax)
+        best_story_items = []
+        for best_story_item in best_story_ids:
+            best_story_items.append(self.get_item_by_id(best_story_item))
+        return best_story_items
+
     def item(self, id):
         item = self.sendRequest(self.base_url + '/item/' + str(id) + self.response_format)
         return item
