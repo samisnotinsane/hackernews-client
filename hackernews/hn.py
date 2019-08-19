@@ -163,23 +163,3 @@ class NewsClient(object):
             job_story_items.append(self.get_item_by_id(job_story_id))
         return job_story_items
 
-    def item(self, id):
-        item = self.sendRequest(self.base_url + '/item/' + str(id) + self.response_format)
-        return item
-
-    def stories(self, fetchMax, type):
-        if type == 'topstories':
-            idList = self.sendRequest(self.base_url + '/topstories' + self.response_format)
-        elif type == 'newstories':
-            idList = self.sendRequest(self.base_url + '/newstories' + self.response_format)
-        elif type == 'beststories':
-            idList = self.sendRequest(self.base_url + '/beststories' + self.response_format)
-        idListLength = len(idList)
-        storyList = []
-        if fetchMax < idListLength:
-            for i in range(fetchMax):
-                id = idList[i]
-                if id is not None:
-                    story = self.item(id)
-                    storyList.append(story)
-        return storyList
