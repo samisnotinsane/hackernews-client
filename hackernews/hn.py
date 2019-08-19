@@ -86,6 +86,16 @@ class NewsClient(object):
         return new_story_items
 
     def get_show_story(self, fetchMax=200):
+        """
+        Fetches up to 200 of the latest Show Hacker News stories from the url: 
+        https://hacker-news.firebaseio.com/v0/showstories.json
+
+        Args:
+            fetchMax: number of stories to fetch. Note: max value is 200
+
+        Returns:
+            stories as list of `Item`
+        """
         show_story_ids = self.get_show_story_ids(limit=fetchMax)
         show_story_items = []
         for show_story_id in show_story_ids:

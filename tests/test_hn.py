@@ -104,9 +104,9 @@ class TestTopStories(unittest.TestCase):
         self.assertIsNotNone(new_story_items[0])
 
     def test_get_show_story(self):
-        show_story_items = self.client.get_show_story(fetchMax=10)
+        show_story_items = self.client.get_show_story(fetchMax=2)
         self.assertTrue(show_story_items)
-        self.assertEqual(len(show_story_items), 10)
+        self.assertEqual(len(show_story_items), 2)
         self.assertIsNotNone(show_story_items[0])
         self.assertIsInstance(show_story_items[0], Item)
 
