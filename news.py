@@ -12,7 +12,13 @@ def printQueryItem(news_client, item_id):
     printItem(1, found_item)
 
 def recentStories(news_client, n=10):
-    pass
+    max_item_id = news_client.get_max_item_id()
+    range_end = max_item_id - n
+    i = 1
+    for item_id in range(range_end, max_item_id):
+        item = news_client.get_item_by_id(item_id)
+        printItem(i, item)
+        i += 1
 
 def printStory(serial_no, item):
     print(
@@ -84,7 +90,7 @@ def main():
     print('  / showing poll with id: '+ str(query) + ' /\n')
     printQueryItem(news_client, query)
 
-    print('* LAST 5 STORIES \n')
+    print('* LAST 5 ITEMS \n')
     recentStories(news_client, n=5)
 
     print('\nExiting')
