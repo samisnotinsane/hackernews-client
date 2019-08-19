@@ -1,13 +1,13 @@
 from hackernews import hn
 
-def bestStories(news_client, n=10):
+def printBestStories(news_client, n=10):
     best_story_list = news_client.get_best_story(n)
     i = 1
     for best_story in best_story_list:
         printItem(i, best_story)
         i+=1
 
-def queryItem(news_client, item_id):
+def printQueryItem(news_client, item_id):
     found_item = news_client.get_item_by_id(item_id)
     printItem(1, found_item)
 
@@ -21,12 +21,16 @@ def main():
     print('* BEST STORIES ')
     how_many = 3
     print('  / showing '+ str(how_many) + ' best stories /\n')
-    bestStories(news_client, how_many)
+    printBestStories(news_client, how_many)
 
     query = 8863 # this is of item type 'story'
-    print('* SEARCH ITEM ')
-    print('  / fetching item by id: '+ str(query) + ' /\n')
-    queryItem(news_client, query)
+    print('* SEARCH ')
+    print('  / showing story with id: '+ str(query) + ' /\n')
+    printQueryItem(news_client, query)
+
+    query = 2921983 # this is of item type 'comment'
+    print('  / showing comment with id: '+ str(query) + ' /\n')
+    printQueryItem(news_client, query)
 
     print('* LAST 5 STORIES \n')
     recentStories(news_client, n=5)
@@ -41,13 +45,16 @@ def printStory(serial_no, item):
     )
 
 def printJob(serial_no, item):
-    pass
+    print('printJob not yet implemented')
 
 def printComment(serial_no, item):
-    pass
+    print(
+        '    ' + str(serial_no) + ' -> ' + 'user: ' + item.by + '\n' +
+        '          ' + 'comment: ' + item.text + '\n'
+        )
 
 def printPoll(serial_no, item, withParts=False):
-    pass
+    print('printPoll not yet implemented')
 
 def printItem(serial_no, item):
     if item.type == 'story':
