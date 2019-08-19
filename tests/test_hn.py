@@ -118,9 +118,9 @@ class TestTopStories(unittest.TestCase):
         self.assertIsInstance(show_story_items[0], Item)
 
     def test_get_ask_story(self):
-        ask_story_items = self.client.get_ask_story(fetchMax=10)
+        ask_story_items = self.client.get_ask_story(fetchMax=2)
         self.assertTrue(ask_story_items)
-        self.assertEqual(len(ask_story_items), 10)
+        self.assertEqual(len(ask_story_items), 2)
         self.assertIsNotNone(ask_story_items[0])
 
     def tearDown(self):
