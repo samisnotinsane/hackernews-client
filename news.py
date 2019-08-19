@@ -28,7 +28,11 @@ def printStory(serial_no, item):
     )
 
 def printJob(serial_no, item):
-    print('printJob not yet implemented')
+    print(
+        '    ' + str(serial_no) + ' -> ' + item.title + '\n' +
+        '          ' + 'description: ' + item.text + '\n' +
+        '          ' + 'url: ' + item.url + '\n'
+    )
 
 def printComment(serial_no, item):
     print(
@@ -57,6 +61,7 @@ def printPoll(serial_no, item, withParts=False):
                 '            ' + chr(ascii_char) + ': ' + part_item.text + ' -> ' + str(part_item.score) + ' votes'
             )
             ascii_char += 1
+    print('\n')
 
 def printItem(serial_no, item):
     if item.type == 'story':
@@ -90,8 +95,14 @@ def main():
     print('  / showing poll with id: '+ str(query) + ' /\n')
     printQueryItem(news_client, query)
 
-    print('* LAST 5 ITEMS \n')
-    recentStories(news_client, n=5)
+    query = 192327 # this is of item type 'job'
+    print('  / showing job with id: '+ str(query) + ' /\n')
+    printQueryItem(news_client, query)
+
+    how_many = 3
+    print('* LAST ' + str(how_many) + ' ITEMS \n')
+    print('  / showing last '+ str(how_many) + ' items /\n')
+    recentStories(news_client, n=how_many)
 
     print('\nExiting')
 
