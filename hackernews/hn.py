@@ -10,7 +10,7 @@ class NewsClient(object):
         self.response_format = '.json'
 
     def sendRequest(self, url):
-        return requests.get(url).json()
+        return requests.get(url, timeout=5).json()
 
     def get_item_by_id(self, id):
         """
@@ -35,7 +35,10 @@ class NewsClient(object):
             `User` representing Hacker News user
         """
         endpoint_url = '/user'
-        response = self.sendRequest(self.base_url + endpoint_url + '/' + id + self.response_format)
+        try:
+            response = self.sendRequest(self.base_url + endpoint_url + '/' + id + self.response_format)
+        except requests.ConnectionError as e:
+            print(str(e))
         return User(response)
 
     def get_max_item_id(self):
@@ -102,6 +105,13 @@ class NewsClient(object):
             show_story_items.append(self.get_item_by_id(show_story_id))
         return show_story_items
     
+    def get_job_story(self, fetchMax=200):
+        job_story_ids = self.get_job_story_ids(limit=fetchMax)
+        job_story_items = []
+        for job_story_id in job_story_ids:
+            job_story_items.append(self.get_item_by_id(job_story_id))
+        return job_story_items
+
     def item(self, id):
         item = self.sendRequest(self.base_url + '/item/' + str(id) + self.response_format)
         return item
