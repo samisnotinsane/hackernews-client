@@ -31,7 +31,26 @@ def printComment(serial_no, item):
         )
 
 def printPoll(serial_no, item, withParts=False):
-    print('printPoll not yet implemented')
+    if not withParts:
+        print(
+            '    ' + str(serial_no) + ' -> ' + item.title + '\n' +
+            '          ' + 'by: ' + item.by + '\n' +
+            '          ' + 'comment count: ' + item.descendants + '\n'
+        )
+    else:
+        client = hn.NewsClient()
+        parts_list = item.parts
+        print(
+                '    ' + str(serial_no) + ' -> ' + item.title + '\n' +
+                '          ' + 'by: ' + item.by
+        )
+        ascii_char = 65 # corresponds to char 'A'
+        for part in parts_list:
+            part_item = client.get_item_by_id(part)
+            print(
+                '            ' + chr(ascii_char) + ': ' + part_item.text + ' -> ' + str(part_item.score) + ' votes'
+            )
+            ascii_char += 1
 
 def printItem(serial_no, item):
     if item.type == 'story':
@@ -59,6 +78,10 @@ def main():
 
     query = 2921983 # this is of item type 'comment'
     print('  / showing comment with id: '+ str(query) + ' /\n')
+    printQueryItem(news_client, query)
+
+    query = 126809 # this is of item type 'poll'
+    print('  / showing poll with id: '+ str(query) + ' /\n')
     printQueryItem(news_client, query)
 
     print('* LAST 5 STORIES \n')
