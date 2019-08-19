@@ -79,6 +79,16 @@ class NewsClient(object):
         return response[:limit]
 
     def get_top_story(self, fetchMax=500):
+        """
+        Fetches up to 500 of the latest top stories from the url:
+        https://hacker-news.firebaseio.com/v0/topstories.json
+
+        Args:
+            fetchMax: number of stories to fetch. Note: max value is 500
+
+        Returns
+            stories as list of `Item`
+        """
         top_story_ids = self.get_top_story_ids(limit=fetchMax)
         top_story_items = []
         for top_story_id in top_story_ids:
