@@ -123,18 +123,11 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(len(ask_story_items), 2)
         self.assertIsNotNone(ask_story_items[0])
 
-    def test_get_top_story_ids(self):
-        top_story_items = self.client.get_top_story(fetchMax=2)
-        self.assertTrue(top_story_items)
-        self.assertEqual(len(top_story_items), 2)
-        self.assertIsNotNone(top_story_items[0])
-
     def test_get_best_story(self):
-        best_story_items = self.client.get_best_story(fetchMax=10)
+        best_story_items = self.client.get_best_story(fetchMax=2)
         self.assertTrue(best_story_items)
-        self.assertEqual(len(best_story_items), 10)
+        self.assertEqual(len(best_story_items), 2)
         self.assertIsNotNone(best_story_items[0])
-
 
     def tearDown(self):
         pass
