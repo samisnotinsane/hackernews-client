@@ -95,8 +95,33 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(len(show_story_ids), 10)
 
     def test_get_job_story_ids(self):
-        job_story_ids = self.client.get_job_story_ids(limit=10)
-        self.assertEqual(len(job_story_ids), 10)
+        job_story_ids = self.client.get_job_story_ids(limit=2)
+        self.assertEqual(len(job_story_ids), 2)
+
+    def test_get_job_story(self):
+        job_story_items = self.client.get_job_story(fetchMax=2)
+        self.assertTrue(job_story_items)
+        self.assertEqual(len(job_story_items), 2)
+        self.assertIsNotNone(job_story_items[0])
+        self.assertIsInstance(job_story_items[0], Item)
+
+    def test_get_new_story(self):
+        new_story_items = self.client.get_new_story(fetchMax=10)
+        self.assertEqual(len(new_story_items), 10)
+        self.assertIsNotNone(new_story_items[0])
+
+    def test_get_show_story(self):
+        show_story_items = self.client.get_show_story(fetchMax=2)
+        self.assertTrue(show_story_items)
+        self.assertEqual(len(show_story_items), 2)
+        self.assertIsNotNone(show_story_items[0])
+        self.assertIsInstance(show_story_items[0], Item)
+
+    def test_get_ask_story(self):
+        ask_story_items = self.client.get_ask_story(fetchMax=2)
+        self.assertTrue(ask_story_items)
+        self.assertEqual(len(ask_story_items), 2)
+        self.assertIsNotNone(ask_story_items[0])
 
     def test_get_top_story_ids(self):
         top_story_items = self.client.get_top_story(fetchMax=2)
