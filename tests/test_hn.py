@@ -95,8 +95,8 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(len(show_story_ids), 10)
 
     def test_get_job_story_ids(self):
-        job_story_ids = self.client.get_job_story_ids(limit=10)
-        self.assertEqual(len(job_story_ids), 10)
+        job_story_ids = self.client.get_job_story_ids(limit=2)
+        self.assertEqual(len(job_story_ids), 2)
 
     def test_get_new_story(self):
         new_story_items = self.client.get_new_story(fetchMax=10)
