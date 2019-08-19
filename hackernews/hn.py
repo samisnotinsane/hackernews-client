@@ -81,6 +81,23 @@ class NewsClient(object):
         response = self.sendRequest(self.base_url + endpoint_url + self.response_format)
         return response[:limit]
 
+    def get_ask_story(self, fetchMax=200):
+        """
+        Fetches up to 200 of the latest Ask Hacker News stories from the url: 
+        https://hacker-news.firebaseio.com/v0/askstories.json
+
+        Args:
+            fetchMax: number of stories to fetch. Note: max value is 200
+
+        Returns:
+            stories as list of `Item`
+        """
+        ask_story_ids = self.get_ask_story_ids(limit=fetchMax)
+        ask_story_items = []
+        for ask_story_id in ask_story_ids:
+            ask_story_items.append(self.get_item_by_id(ask_story_id))
+        return ask_story_items
+
     def get_new_story(self, fetchMax=500):
         new_story_ids = self.get_new_story_ids(limit=fetchMax)
         new_story_items = []
