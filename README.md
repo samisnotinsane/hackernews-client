@@ -56,7 +56,7 @@ This package contains tests which verifies the integrity of the internal logic.
 
 ### Unit tests
 
-To run all unit tests, make sure you're in the root directory (`hackernews-client`) use Python's built in `unittest` library
+To run all unit tests, make sure you're in the root directory (`hackernews-client`). Use Python's built in `unittest` library
 
 ```
 python -m unittest -v
@@ -68,7 +68,7 @@ Alternatively, it could be that a breaking change was made to the Web API which 
 
 ## Usage
 
-Begin by importing the library. This example assumes you're working within `news.py` from the root directory of the repo.
+Begin by importing the library. This example assumes you're working within `news.py` in the root directory of the repo.
 
 ```
 from hackernews import hn
@@ -93,6 +93,8 @@ adjusting the value of `fetchMax` up to and including a maximum of `500`.
 For completeness, full documentation with examples are provided below.
 
 ## Documentation
+
+### Class: `NewsClient`
 
 - `stories`
 
@@ -125,9 +127,13 @@ descendants | In the case of stories or polls, the total comment count.
 
 ![Hacker News Client](/screenshots/hackernews-client-screenshot.png?raw=true "Bash shell running example.py script")
 
+## Authors
+
+* **Sameen Islam** - [samisnotinsane](https://github.com/samisnotinsane)
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## Acknowledgments
 
