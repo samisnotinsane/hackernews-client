@@ -129,6 +129,16 @@ class TestTopStories(unittest.TestCase):
         self.assertEqual(len(best_story_items), 2)
         self.assertIsNotNone(best_story_items[0])
 
+    def test_get_item_kids(self):
+        item = self.client.get_item(8863)
+        kids_item_list = item.kids
+        first_kids_item = kids_item_list[0]
+        self.assertIsInstance(first_kids_item, Item)
+        self.assertEqual(first_kids_item.id, 9224)
+        self.assertEqual(first_kids_item.by,'BrandonM')
+        self.assertEqual(first_kids_item.time, 1175786214)
+        self.assertEqual(first_kids_item.type, 'comment')
+
     def tearDown(self):
         pass
 
