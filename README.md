@@ -110,6 +110,8 @@ a list of `Item` (each of type `dict`). See class documentation for `Item` which
 
 ### Class: `Item`
 
+Stories, comments, jobs, Ask HNs and even polls are just items. They're identified by their ids, which are unique integers.
+
 Field | Description
 ------|------------
 id | The item's unique id.
@@ -127,6 +129,19 @@ score | The story's score, or the votes for a pollopt.
 title | The title of the story, poll or job.
 parts | A list of related pollopts, in display order.
 descendants | In the case of stories or polls, the total comment count.
+
+### Class: `User`
+
+Users are identified by case-sensitive ids. Only users that have public activity (comments or story submissions) on the site are available through the API.
+
+Field | Description
+------|------------
+**id** | The user's unique username. Case-sensitive. Required.
+delay | Delay in minutes between a comment's creation and its visibility to other users.
+**created** | Creation date of the user, in [Unix Time](http://en.wikipedia.org/wiki/Unix_time).
+**karma** | The user's karma.
+about | The user's optional self-description. HTML.
+submitted | List of the user's stories, polls and comments.
 
 ## Screenshot
 
