@@ -20,7 +20,7 @@ pip install requests
 
 ### Installing
 
-This example assumes you clone this project into `C:\Data\`.
+This example assumes you clone this project into: `C:\Data\`
 
 In your Terminal
 
@@ -52,7 +52,7 @@ modifying it to suit your use case.
 
 ## Running the tests
 
-This package contains tests which verifies the integrity of the logic
+This package contains tests which verifies the integrity of the internal logic.
 
 ### Unit tests
 
@@ -64,13 +64,35 @@ python -m unittest -v
 
 If you have clone from `master` branch, these should always pass. At the time of testing, sometimes these tests failed with `SSLErrors` due to too many requests being made to the Hacker News API too quickly. Wait ~20 secs before running the unit tests again.
 
-Alternatively, it could be that a breaking change was made to the Web API which would require updating this library. Feel free to raise an Issue or a Pull Request to remediate the problem.
+Alternatively, it could be that a breaking change was made to the Web API which would require updating this library. Feel free to raise an [Issue](https://github.com/samisnotinsane/hackernews-client/issues) or a [Pull Request](https://github.com/samisnotinsane/hackernews-client/pulls) to remediate the problem.
 
 ## Usage
 
-Initialise the wrapper by instantiating `hn = HackerNews()`. An example of how to use this client can be seen in `examples.py`.
+Begin by importing the library. This example assumes you're working within `news.py` from the root directory of the repo.
 
-The class supports the following methods:
+```
+from hackernews import hn
+```
+
+The client is then initialised in the following way
+
+```
+news_client = hn.NewsClient()
+```
+
+In this case, `news_client` object gives access to all available methods. The data contained in the methods and the instances returned all closely follow the [HackerNews API](https://github.com/HackerNews/API).
+
+You may retrieve a list of best `10` stories in the following way
+
+```
+news_client.get_best_story(fetchMax=10)
+```
+
+adjusting the value of `fetchMax` up to and including a maximum of `500`.
+
+For completeness, full documentation with examples are provided below.
+
+## Documentation
 
 - `stories`
 
@@ -99,14 +121,6 @@ title | The title of the story, poll or job.
 parts | A list of related pollopts, in display order.
 descendants | In the case of stories or polls, the total comment count.
 
-## Running the tests
-
-Unit tests can be run with the following command
-
-```
-python -m unittest -v
-```
-
 ## Screenshot
 
 ![Hacker News Client](/screenshots/hackernews-client-screenshot.png?raw=true "Bash shell running example.py script")
@@ -118,4 +132,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Author of [haxor](https://github.com/avinassh/haxor) for inspiring me to make my first Python library
-* Author of [python-packaging](http://veekaybee.github.io/2017/09/26/python-packaging/) tutorial who helped me get my head around nighmarish Python import system
+* Author of [python-packaging](http://veekaybee.github.io/2017/09/26/python-packaging/) whose tutorial helped me get my head around the Python import system
