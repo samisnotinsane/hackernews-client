@@ -163,3 +163,13 @@ class NewsClient(object):
             job_story_items.append(self.get_item_by_id(job_story_id))
         return job_story_items
 
+    def get_item(self, item_id):
+        item = self.get_item_by_id(item_id)
+        if item.type is not 'job' or 'pollopt': # these do not have kids
+            kids_id_list = item.kids
+            kids_item_list = []
+            for kids_id in kids_id_list:
+                kids_item = self.get_item_by_id(kids_id)
+                kids_item_list.append(kids_item)
+            item.kids = kids_item_list
+        return item
