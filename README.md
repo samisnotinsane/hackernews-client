@@ -6,13 +6,65 @@
 
 Use this wrapper library to download Hacker News headlines into your Python program. 
 
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+
 ### Prerequisites
 
-requests library is used to wrap around Hacker News' Web API. Therefore you will need this as a dependency.
+You will need the python-requests library so we can make HTTP calls. Install with pip:
 
 ```
 pip install requests
 ```
+
+### Installing
+
+This example assumes you clone this project into `C:\Data\`.
+
+In your Terminal
+
+```
+cd hackernews-client
+```
+
+Run the example script (`news.py`) which fetches:
+  - Best stories
+  - Search
+    - story
+    - comment
+    - poll
+    - job
+  - Most recent items (last `n` items)
+
+```
+python news.py
+```
+
+You may make another copy of this script
+
+```
+cp news.py ./my_copy_news.py
+python my_copy_news.py
+```
+
+modifying it to suit your use case.
+
+## Running the tests
+
+This package contains tests which verifies the integrity of the logic
+
+### Unit tests
+
+To run all unit tests, make sure you're in the root directory (`hackernews-client`) use Python's built in `unittest` library
+
+```
+python -m unittest -v
+```
+
+If you have clone from `master` branch, these should always pass. At the time of testing, sometimes these tests failed with `SSLErrors` due to too many requests being made to the Hacker News API too quickly. Wait ~20 secs before running the unit tests again.
+
+Alternatively, it could be that a breaking change was made to the Web API which would require updating this library. Feel free to raise an Issue or a Pull Request to remediate the problem.
 
 ## Usage
 
