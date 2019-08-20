@@ -96,14 +96,19 @@ For completeness, full documentation with examples are provided below.
 
 ### Class: `NewsClient`
 
-- `stories`
+- `get_item`
 
-Parameter | Description
-----------|------------
-fetchMax | Number of story items to fetch (max: 500)
-type | `beststories`: best stories, `topstories`: top stories, `newstories`: new stories
+**Parameters:**
 
-This method returns a list of `Item`. An `Item` is a dict with the following properties (as defined by Hacker News web API):
+
+| Name       | Type      | Required | Description                         | Default
+| ---------- | --------- | -------- | ----------------------------------- | -------
+| `item_id`  | int| Yes      | unique item id of Hacker News story, comment etc | None
+
+Returns:
+a list of `Item` (each of type `dict`). See class documentation for `Item` which contains a full description of each property.
+
+### Class: `Item`
 
 Field | Description
 ------|------------
@@ -116,7 +121,7 @@ text | The comment, story or poll text. HTML.
 dead | `true` if the item is dead.
 parent | The comment's parent: either another comment or the relevant story.
 poll | The pollopt's associated poll.
-kids | The ids of the item's comments, in ranked display order.
+kids | list of `Item` of this item's comments, in ranked display order.
 url | The URL of the story.
 score | The story's score, or the votes for a pollopt.
 title | The title of the story, poll or job.
