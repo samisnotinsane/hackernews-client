@@ -18,7 +18,7 @@ URL = 'https://github.com/samisnotinsane/hackernews-client'
 EMAIL = 'sameen11@hotmail.com'
 AUTHOR = 'samisnotinsane'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = 'v0.1-beta.1'
+VERSION = 'v0.1.2-beta-1'
 
 # What packages are required for this module to be executed?
 REQUIRED = [
