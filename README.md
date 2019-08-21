@@ -164,6 +164,25 @@ a list of Show HN stories as `Item` from the url `https://hacker-news.firebaseio
 Returns:
 a list of best stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/beststories.json`
 
+- `get_job_story`
+
+**Parameters:**
+
+| Name        | Type    | Required    | Description                             | Default
+| ----------- | ------- | ----------- | --------------------------------------- | -------
+| `fetchMax`  | int     | Yes         | Number of stories to fetch, max value = 200 | 200
+
+Returns:
+a list of job stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/jobstories.json`
+
+- `get_max_item_id`
+
+**Parameters:** None
+
+Returns:
+`int` of the largest item id from the url: `https://hacker-news.firebaseio.com/v0/maxitem.json`
+
+
 ### Class: `Item`
 
 Stories, comments, jobs, Ask HNs and even polls are just items. They're identified by their ids, which are unique integers.
