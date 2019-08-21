@@ -23,7 +23,9 @@ class NewsClient(object):
         """
         endpoint_url = '/item'
         response = self.sendRequest(self.base_url + endpoint_url + '/' + str(id) + self.response_format)
-        return Item(response)
+        if response is not None:
+            return Item(response)
+        return None
     
     def get_user_by_id(self, id):
         """
