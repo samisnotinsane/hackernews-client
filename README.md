@@ -20,7 +20,13 @@ pip install requests
 
 ### Installing
 
-In your Terminal
+Using pip
+
+```
+pip install hackernews-client==0.1.2b1
+```
+
+From sources
 
 ```
 git clone https://github.com/samisnotinsane/hackernews-client.git
@@ -42,8 +48,6 @@ this fetches:
     - job
   - Most recent items (last `n` items)
 
-
-
 You may make another copy of this script
 
 ```
@@ -52,6 +56,8 @@ python my_copy_news.py
 ```
 
 modifying it to suit your use case.
+
+Make sure your setup is working by opening IDLE and importing the library (see Usage section below) if you have installed via pip.
 
 ## Running the tests
 
@@ -85,15 +91,15 @@ news_client = hn.NewsClient()
 
 In this case, `news_client` object gives access to all available methods. The data contained in the methods and the instances returned all closely follow the [HackerNews API](https://github.com/HackerNews/API).
 
-You may retrieve a list of best `10` stories in the following way
+Try to print the headline of the best story today. First open IDLE, then
 
 ```
-news_client.get_best_story(fetchMax=10)
+print(str(news_client.get_best_story(fetchMax=10)[0].title))
 ```
 
-adjusting the value of `fetchMax` up to and including a maximum of `500`.
+If you can read the headline, you're good to go!
 
-For completeness, full documentation with examples are provided below.
+Full documentation with examples are provided below.
 
 ## Documentation
 
