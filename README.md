@@ -101,9 +101,9 @@ For completeness, full documentation with examples are provided below.
 **Parameters:**
 
 
-| Name       | Type      | Required | Description                         | Default
-| ---------- | --------- | -------- | ----------------------------------- | -------
-| `item_id`  | int| Yes      | unique item id of Hacker News story, comment etc | None
+| Name       | Type | Required | Description                                   | Default
+| ---------- | ---- | -------- | --------------------------------------------- | -------
+| `item_id`  | int  | Yes      | unique item id of Hacker News story, comment etc | None
 
 Returns:
 a list of `Item` (each of type `dict`). See class documentation for `Item` which contains a full description of each property.
@@ -126,10 +126,43 @@ a list of top stories as `Item` from the url `https://hacker-news.firebaseio.com
 
 | Name        | Type    | Required    | Description                             | Default
 | ----------- | ------- | ----------- | --------------------------------------- | -------
+| `fetchMax`  | int     | Yes         | Number of stories to fetch, max value = 200 | 200
+
+Returns:
+a list of Ask HN stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/askstories.json`
+
+- `get_new_story`
+
+**Parameters:**
+
+| Name        | Type    | Required    | Description                             | Default
+| ----------- | ------- | ----------- | --------------------------------------- | -------
 | `fetchMax`  | int     | Yes         | Number of stories to fetch, max value = 500 | 500
 
 Returns:
-a list of top stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/askstories.json`
+a list of new stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/newstories.json`
+
+- `get_show_story`
+
+**Parameters:**
+
+| Name        | Type    | Required    | Description                             | Default
+| ----------- | ------- | ----------- | --------------------------------------- | -------
+| `fetchMax`  | int     | Yes         | Number of stories to fetch, max value = 200 | 200
+
+Returns:
+a list of Show HN stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/showstories.json`
+
+- `get_best_story`
+
+**Parameters:**
+
+| Name        | Type    | Required    | Description                             | Default
+| ----------- | ------- | ----------- | --------------------------------------- | -------
+| `fetchMax`  | int     | Yes         | Number of stories to fetch, max value = 200 | 200
+
+Returns:
+a list of best stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/beststories.json`
 
 ### Class: `Item`
 
