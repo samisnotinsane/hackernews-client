@@ -108,6 +108,18 @@ For completeness, full documentation with examples are provided below.
 Returns:
 a list of `Item` (each of type `dict`). See class documentation for `Item` which contains a full description of each property.
 
+
+- `get_top_story`
+
+**Parameters:**
+
+| Name        | Type    | Required    | Description                             | Default
+| ----------- | ------- | ----------- | --------------------------------------- | -------
+| `fetchMax`  | int     | Yes         | Number of stories to fetch, max value = 500 | 500
+
+Returns:
+a list of top stories as `Item` from the url `https://hacker-news.firebaseio.com/v0/topstories.json`
+
 ### Class: `Item`
 
 Stories, comments, jobs, Ask HNs and even polls are just items. They're identified by their ids, which are unique integers.
