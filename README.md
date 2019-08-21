@@ -182,6 +182,29 @@ a list of job stories as `Item` from the url `https://hacker-news.firebaseio.com
 Returns:
 `int` of the largest item id from the url: `https://hacker-news.firebaseio.com/v0/maxitem.json`
 
+- `get_item_by_id`
+
+**Parameters:**
+
+| Name  | Type | Required | Description                           | Default
+| ----- | ---- | -------- | ------------------------------------- | -------
+| `id`  | int  | Yes      | unique `Item` id of Hacker News story | None
+
+Returns:
+`Item` representing the Hacker News story with given `id` fetched
+from url: `https://hacker-news.firebaseio.com/v0/item/<item_id>.json`
+
+- `get_user_by_id`
+
+**Parameters:**
+
+| Name  | Type | Required | Description                           | Default
+| ----- | ---- | -------- | ------------------------------------- | -------
+| `id`  | int  | Yes      | unique `Item` id of Hacker News story | None
+
+Returns:
+`User` representing the Hacker News user with given `id` fetched
+from url: `https://hacker-news.firebaseio.com/v0/user/<user_id>.json`
 
 ### Class: `Item`
 
@@ -232,5 +255,5 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Acknowledgments
 
-* Author of [haxor](https://github.com/avinassh/haxor) for inspiring me to make my first Python library
+* Author of [haxor](https://github.com/avinassh/haxor) whose library inspired me to make my first Python library
 * Author of [python-packaging](http://veekaybee.github.io/2017/09/26/python-packaging/) whose tutorial helped me get my head around the Python import system
