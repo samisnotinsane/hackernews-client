@@ -20,15 +20,20 @@ pip install requests
 
 ### Installing
 
-This example assumes you clone this project into: `C:\Data\`
-
 In your Terminal
 
 ```
+git clone https://github.com/samisnotinsane/hackernews-client.git
 cd hackernews-client
 ```
 
-Run the example script (`news.py`) which fetches:
+Run the example script: `news.py`
+
+```
+python news.py
+```
+
+this fetches:
   - Best stories
   - Search
     - story
@@ -37,9 +42,7 @@ Run the example script (`news.py`) which fetches:
     - job
   - Most recent items (last `n` items)
 
-```
-python news.py
-```
+
 
 You may make another copy of this script
 
