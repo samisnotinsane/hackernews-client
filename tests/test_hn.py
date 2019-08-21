@@ -8,7 +8,7 @@ from hackernews.hn import NewsClient
 from hackernews.hn import Item
 from hackernews.hn import User
 
-class TestTopStories(unittest.TestCase):
+class TestNewsClient(unittest.TestCase):
     
     def setUp(self):
         self.client = NewsClient()
